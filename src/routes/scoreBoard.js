@@ -2,7 +2,7 @@ const router = require('express').Router();
 // const authorize = require('../middleware/authorize');
 let FlappyScoreBoard = require('../models/flappyscoreboard.model');
 let RunScoreBoard = require('../models/runscoreboard.model');
-let RunTwoNewScore = require('../models/runtwoscoreboard.model');
+let RunTwoScoreBoard = require('../models/runtwoscoreboard.model');
 let TetrisScoreBoard = require('../models/tetrisscoreboard.model');
 let SteamScoreBoard = require('../models/steamscoreboard.model');
 
