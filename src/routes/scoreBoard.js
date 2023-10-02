@@ -10,7 +10,7 @@ let AsteroidScoreBoard = require('../models/asteroidscoreboard.model');
 router.route('/').get((req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.send(
-    '<h1>/flappy for FlappyScoreBoard<br/>/run for RunScoreBoard<br/>/run-two for RunTwoScoreBoard<br/>/tetris for TetrisScoreBoard<br/>/steampunk for SteamScoreBoard</h1>'
+    '<h1>/flappy for FlappyScoreBoard<br/>/run for RunScoreBoard<br/>/run-two for RunTwoScoreBoard<br/>/tetris for TetrisScoreBoard<br/>/steampunk for SteamScoreBoard<br/>/astroids for AsteroidScoreBoard</h1>'
   );
 });
 
