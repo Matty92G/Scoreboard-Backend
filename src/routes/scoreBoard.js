@@ -5,6 +5,7 @@ let RunScoreBoard = require('../models/runscoreboard.model');
 let RunTwoScoreBoard = require('../models/runtwoscoreboard.model');
 let TetrisScoreBoard = require('../models/tetrisscoreboard.model');
 let SteamScoreBoard = require('../models/steamscoreboard.model');
+let AsteroidScoreBoard = require('../models/asteroidscoreboard.model');
 
 router.route('/').get((req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -85,19 +86,19 @@ router.route('/tetris/add').post((req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route('/steampunk').get((req, res) => {
-  SteamScoreBoard.find()
+router.route('/asteroid').get((req, res) => {
+  AsteroidScoreBoard.find()
     .then((scoreBoard) => res.json(scoreBoard))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route('/steampunk/add').post((req, res) => {
+router.route('/asteroid/add').post((req, res) => {
   const name = req.body.name;
   const score = Number(req.body.score);
   const img = req.body.img;
-  const newSteamScoreBoard = new SteamScoreBoard({ name, score, img });
+  const newAsteroidScoreBoard = new AsteroidScoreBoard({ name, score, img });
 
-  newSteamScoreBoard
+  newAsteroidScoreBoard
     .save()
     .then(() => res.json('Score added!'))
     .catch((err) => res.status(400).json('Error: ' + err));
