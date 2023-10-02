@@ -86,6 +86,24 @@ router.route('/tetris/add').post((req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
+router.route('/steampunk').get((req, res) => {
+  SteamScoreBoard.find()
+    .then((scoreBoard) => res.json(scoreBoard))
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
+
+router.route('/steampunk/add').post((req, res) => {
+  const name = req.body.name;
+  const score = Number(req.body.score);
+  const img = req.body.img;
+  const newSteamScoreBoard = new SteamScoreBoard({ name, score, img });
+
+  newSteamScoreBoard
+    .save()
+    .then(() => res.json('Score added!'))
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
+
 router.route('/asteroids').get((req, res) => {
   AsteroidScoreBoard.find()
     .then((scoreBoard) => res.json(scoreBoard))
